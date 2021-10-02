@@ -5,13 +5,15 @@ public final class zoom {
 		//rect.grow(factor,factor);
 		
 		//find the center of the object
-		double cX = (rect.getX()+rect.getWidth())/2;
-		double cY = (rect.getY()+rect.getHeight())/2;
+		double cX = (rect.getX()+(rect.getX()+rect.getWidth()))/2;
+		double cY = (rect.getY()+(rect.getY()+rect.getHeight()))/2;
+		System.out.println(mX+", "+mY);
 		System.out.println(cX+", "+cY);
+		System.out.println(rect.getWidth()+", "+rect.getHeight());
 		//rect.translate(0.3*(cX-mX),0.3*(cY-mY));
 		
 		//find distance between center of Rect and mX,mY
-		double distance = 0;
-		System.out.println();
+		double distance = Maths.sqrt(Maths.pow((mX-cX),2)+Maths.pow((mY-cY),2));
+		System.out.println(distance);
 	}
 }

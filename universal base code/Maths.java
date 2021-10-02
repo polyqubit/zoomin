@@ -2,8 +2,8 @@ import pkg.*;
 import java.util.ArrayList;
 import java.time.Clock;
 
-public class Maths {
-	double mathnumber;
+public final class Maths {
+	static double mathnumber;
 	private Clock clo;
 	
 	Maths (double inp) {
@@ -11,12 +11,12 @@ public class Maths {
 	}
 	
 	//floor, takes double
-	int floorD() {
+	static int floorD(double mathnumber) {
 		return (int) mathnumber;
 	}
 	
 	//ceiling command, takes double
-	int ceilD() {
+	static int ceilD(double mathnumber) {
 		int benchmark = (int) mathnumber;
 		if(mathnumber>0){
 			if(mathnumber>benchmark){return (int) mathnumber+1;}
@@ -31,7 +31,7 @@ public class Maths {
 	}
 	
 	//round command, takes double
-	int round() {
+	static int round(double mathnumber) {
 		double benchmark = (int) mathnumber+0.5;
 		if(mathnumber<benchmark){return (int) mathnumber;}
 		else if(mathnumber>benchmark){return (int) mathnumber+1;}
@@ -39,13 +39,13 @@ public class Maths {
 	}
 	
 	//absolute value command, takes double
-	double abs() {
+	static double abs(double mathnumber) {
 		if(mathnumber>0){return mathnumber;}
 		else{return mathnumber*(-1);}
 	}
 	
 	//maximum command, takes unlimited doubles
-	double max(double[] inp) {
+	static double max(double[] inp) {
 		double maxinp = inp[0];
 		for(int i=1;i<inp.length;i++) {
 			if (inp[i]>maxinp) {maxinp=inp[i];}
@@ -54,7 +54,7 @@ public class Maths {
 	}
 	
 	//minimum command, takes unlimited doubles
-	double min(double[] inp) {
+	static double min(double[] inp) {
 		double mininp = inp[0];
 		for(int i=1;i<inp.length;i++) {
 			if (inp[i]<mininp) {mininp=inp[i];}
@@ -63,7 +63,7 @@ public class Maths {
 	}
 	
 	//power command, takes a double base and an int exponent
-	double pow(int exp) {
+	static double pow(double mathnumber, int exp) {
 		if(exp<=0) {return 1;}
 		int c = 1;
 		double d = mathnumber;
@@ -73,7 +73,7 @@ public class Maths {
 	
 	//root command, takes a double base
 	//note: not my code, couldn't figure out a way to do this
-	double sqrt() {
+	static double sqrt(double mathnumber) {
 		if(mathnumber<0){return 0;}
 		double a = 0;
 		double sqt = mathnumber/2;
@@ -85,7 +85,7 @@ public class Maths {
 	}
 	
 	//averaging function, takes unlimited doubles
-	double avg(double[] inp) {
+	static double avg(double[] inp) {
 		double sum = 0;
 		for(int i=0;i<inp.length;i++) {
 			sum += inp[i];
@@ -94,7 +94,7 @@ public class Maths {
 	}
 	
 	//random command, takes an integer upper bound
-	double rand(int limit) {
+	static double rand(int limit) {
 		if(limit>100000000) {limit=100000000;}
 		double tiom = System.currentTimeMillis()*System.currentTimeMillis()*30109.14159265358979;
 		int[] list = new int[limit+1];
@@ -113,78 +113,6 @@ public class Maths {
 		return list[toim];
 	}
 }
-
-
-
-class nMath extends Maths {
-	double num = 0;
-	public nMath(double inp) {
-		super(inp);
-	}
-	public int floorD(int flag) {
-		int x = super.floorD();
-		if((flag & 0b0000000001) !=0) {System.out.print(x);};
-		return(x);
-	}
-	public int ceilD(int flag) {
-		int x = super.ceilD();
-		if((flag & 0b0000000010) !=0) {System.out.print(x);};
-		return(x);
-	}
-	
-	public int round(int flag) {
-		int x = super.round();
-		if((flag & 0b0000000100) !=0) {System.out.print(x);};
-		return(x);
-	}
-	
-	public double abs(int flag) {
-		double x = super.abs();
-		if((flag & 0b0000001000) !=0) {System.out.print(x);};
-		return(x);
-	}
-	
-	public double max(int flag, double ... inp) {
-		double x = super.max(inp);
-		if((flag & 0b0000010000) !=0) {System.out.print(x);};
-		return(x);
-	}
-	
-	public double min(int flag, double ... inp) {
-		double x = super.min(inp);
-		if((flag & 0b0000100000) !=0) {System.out.print(x);};
-		return(x);
-	}
-
-	public double pow(int flag, int exp) {
-		double x = super.pow(exp);
-		if((flag & 0b0001000000) !=0) {System.out.print(x);};
-		return(x);
-	}
-
-	public double sqrt(int flag) {
-		double x = super.sqrt();
-		if((flag & 0b0010000000) !=0) {System.out.print(x);};
-		return(x);
-	}
-	
-
-	public double avg(int flag, double ... inp) {
-		double x = super.avg(inp);
-		if((flag & 0b0100000000) !=0) {System.out.print(x);};
-		return(x);
-	}
-
-	public double rand(int flag, int limit) {
-		double x = super.rand(limit);
-		if((flag & 0b1000000000) !=0) {System.out.print(x);};
-		return(x);
-	}
-}
-
-
-
-
 
 
 

@@ -8,7 +8,7 @@ public class starter implements InputControl, InputKeyControl {
 		// please leave following line alone, necessary for keyboard/mouse input
 		KeyController kC = new KeyController(Canvas.getInstance(),new starter());
 		MouseController mC = new MouseController(Canvas.getInstance(),new starter());
-		zTest = new Rectangle(250,250,10,10);
+		zTest = new Rectangle(250,250,20,20);
 		zTest.setColor(new Color(50,50,255));
 		zTest.fill();
 	}
