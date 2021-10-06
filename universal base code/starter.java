@@ -16,6 +16,8 @@ public class starter implements InputControl, InputKeyControl {
 	public void onMouseClick(double x, double y) {
 		// enter code here
 		zoom.zoom(zTest,1.1,x,y);
+		Rectangle mousec = new Rectangle(x,y,1,1);
+		mousec.draw();
 	}
 
 	public void keyPress(String s) {
